@@ -4,16 +4,16 @@
 flowchart TD
 
 subgraph Frontend [Frontend - Nuxt.js]
-  UI["Tarefas (Listar/Criar/Editar)"]
-  API_Calls["Chamadas HTTP (axios/fetch)"]
+  UI["Tarefas: Listar / Criar / Editar"]
+  API_Calls["Chamadas HTTP (axios ou fetch)"]
   UI --> API_Calls
 end
 
 subgraph Backend [Backend - Node.js / Express ou Nuxt Server Routes]
-  Controller["Controllers (Rotas REST)"]
-  Service["Services (Regras de Negócio)"]
-  Repo["Repository (ORM - Prisma)"]
-  Job["Job Scheduler (node-cron)"]
+  Controller["Controllers - Rotas REST"]
+  Service["Services - Regras de Negocio"]
+  Repo["Repository - ORM Prisma"]
+  Job["Job Scheduler - node-cron"]
 end
 
 subgraph Database [Database - PostgreSQL]
@@ -21,17 +21,17 @@ subgraph Database [Database - PostgreSQL]
   Notifications["Tabela: notifications"]
 end
 
-UI -->|CRUD Tasks| Controller
+UI -->|CRUD de tarefas| Controller
 API_Calls --> Controller
 Controller --> Service
 Service --> Repo
-Repo -->|CRUD| Tasks
-Service -->|Registra logs/alertas| Notifications
+Repo -->|Operacoes CRUD| Tasks
+Service -->|Registra alertas| Notifications
 
-Job -->|Consulta tarefas próximas ao vencimento| Tasks
-Job -->|Cria alertas (idempotente)| Notifications
+Job -->|Verifica tarefas proximas do vencimento| Tasks
+Job -->|Cria alertas idempotentes| Notifications
 
-Notifications -->|Constraint UNIQUE(task_id, type)| Notifications
+Notifications -->|Constraint UNIQUE task_id + type| Notifications
 
 style Frontend fill:#C7E8FF,stroke:#333,stroke-width:1px
 style Backend fill:#D2FFD0,stroke:#333,stroke-width:1px
