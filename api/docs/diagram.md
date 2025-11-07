@@ -1,6 +1,8 @@
 ## Arquitetura do Projeto
 
 ```mermaid
+%%{init: {"themeVariables": { "lineColor": "#222222", "lineWidth": 2 }}}%%
+
 flowchart TD
 
 subgraph Frontend [Frontend - Nuxt.js]
@@ -33,6 +35,7 @@ Job -->|Cria alertas idempotentes| Notifications
 
 Notifications -->|Constraint UNIQUE task_id + type| Notifications
 
-style Frontend fill:#C7E8FF,stroke:#333,stroke-width:1px
-style Backend fill:#D2FFD0,stroke:#333,stroke-width:1px
-style Database fill:#FFE5A5,stroke:#333,stroke-width:1px
+style Frontend fill:#C7E8FF,stroke:#333,stroke-width:1.5px
+style Backend fill:#D2FFD0,stroke:#333,stroke-width:1.5px
+style Database fill:#FFE5A5,stroke:#333,stroke-width:1.5px
+
