@@ -1,1 +1,1 @@
-![Arquitetura do Projeto](./docs/architecture-diagram.png)
+![Arquitetura do Projeto](./architecture-diagram.png)
