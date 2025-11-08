@@ -13,15 +13,6 @@
     "test": "jest --runInBand --detectOpenHandles",
     "coverage": "jest --coverage"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "coverageThreshold": {
-      "global": {
-        "lines": 80,
-        "branches": 75
-      }
-    }
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

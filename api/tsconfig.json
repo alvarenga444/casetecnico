@@ -1,32 +1,21 @@
 {
   "compilerOptions": {
-
-    "target": "ES2020",                 
-    "module": "CommonJS",                
-    "rootDir": ".",                  
-    "outDir": "./dist",                  
-    "resolveJsonModule": true,           
-    "removeComments": true,              
-
+    "target": "ES2020",
+    "module": "CommonJS",
+    "rootDir": ".",
+    "outDir": "./dist",
     "moduleResolution": "node",
-    "baseUrl": ".",                      
-    "paths": {
-      "@/*": ["src/*"]
-    },
-
-    "types": ["node", "jest"],           
-    "esModuleInterop": true,             
-    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,                
-
-    "strict": true,                      
-    "noImplicitAny": false,              
-    "strictNullChecks": true,
-    "isolatedModules": true,
-
-    "sourceMap": true
+    "types": ["node", "jest"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@prisma/client": ["node_modules/@prisma/client"]
+    }
   },
   "include": ["src", "tests"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["dist"]
 }

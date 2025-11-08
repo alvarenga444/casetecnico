@@ -9,7 +9,7 @@ const config: Config = {
     "^.+\\.ts$": ["ts-jest", { tsconfig: "<rootDir>/tsconfig.json" }],
   },
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1", 
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
   clearMocks: true,                
   verbose: true,                   
@@ -26,7 +26,8 @@ const config: Config = {
       branches: 75,
     },
   },
-  coverageDirectory: "coverage",   
+  coverageDirectory: "coverage",
+  setupFilesAfterEnv: ["<rootDir>/tests/setupTests.ts"],
 };
 
 export default config;
