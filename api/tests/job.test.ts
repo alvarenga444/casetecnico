@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { checkDueTasksAndNotify } from "../src/jobs/taskReminderJob";
+import * as cron from "node-cron";
 
 const prisma = new PrismaClient();
 
@@ -7,7 +8,6 @@ describe("Job de Alerta (idempotência)", () => {
   beforeAll(async () => {
     await prisma.notifications.deleteMany({});
     await prisma.tasks.deleteMany({});
-    // cria uma task com dueDate próximo (30 minutos)
     await prisma.tasks.create({
       data: {
         title: "Teste Job",
@@ -32,5 +32,18 @@ describe("Job de Alerta (idempotência)", () => {
 
     expect(firstCount).toBeGreaterThan(0);
     expect(secondCount).toBe(firstCount);
+  });
+
+  it("agenda o cron corretamente em ambiente de produção", async () => {
+    const scheduleSpy = jest.spyOn(cron, "schedule").mockImplementation(() => ({
+      start: jest.fn(),
+      stop: jest.fn(),
+    }) as any);
+
+    process.env.NODE_ENV = "production";
+    const job = await import("../src/jobs/taskReminderJob");
+    expect(scheduleSpy).toHaveBeenCalledTimes(1);
+
+    scheduleSpy.mockRestore();
   });
 });

@@ -27,6 +27,8 @@ export async function checkDueTasksAndNotify() {
   console.log("🏁 Verificação concluída.\n");
 }
 
-cron.schedule("*/5 * * * *", async () => {
-  await checkDueTasksAndNotify();
-});
+if (process.env.NODE_ENV !== "test") {
+  cron.schedule("*/5 * * * *", async () => {
+    await checkDueTasksAndNotify();
+  });
+}
