@@ -15,7 +15,8 @@
     "db:seed": "npx ts-node prisma/seed.ts",
     "test": "jest --runInBand --detectOpenHandles",
     "coverage": "jest --coverage --runInBand",
-    "e2e": "jest --config jest.e2e.config.ts"
+    "e2e": "jest --config jest.e2e.config.ts",
+    "job:demo": "ts-node src/jobs/demoJobRun.ts"
   },
   "keywords": [],
   "author": "",
