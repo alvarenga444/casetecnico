@@ -6,10 +6,34 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../../node_modules/@prisma/client"
+
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model tasks {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  owner       String
+  dueDate     DateTime
+  status      String   @default("pending")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  notifications notifications[]
+}
+
+model notifications {
+  id        String   @id @default(uuid())
+  taskId    String
+  type      String
+  createdAt DateTime @default(now())
+
+  task tasks @relation(fields: [taskId], references: [id])
+  @@unique([taskId, type])
+}
+
