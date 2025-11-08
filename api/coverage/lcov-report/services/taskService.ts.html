@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.61% </span>
+                <span class="strong">95.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/21</span>
+                <span class='fraction'>20/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.63% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/19</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -103,31 +103,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as taskRepository from "../repositories/taskRepository";
 &nbsp;
@@ -135,32 +135,32 @@ export async function getAll() {
   return taskRepository.getAll();
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >getById(</span>id: string) {
-<span class="cstat-no" title="statement not covered" >  return taskRepository.getById(id);</span>
+export async function getById(id: string) {
+  return taskRepository.getById(id);
 }
 &nbsp;
 export async function create(data: any) {
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!data.title || !data.owner || !data.dueDate) {
-<span class="cstat-no" title="statement not covered" >    throw new Error("Campos obrigatórios: title, owner, dueDate");</span>
+  if (!data.title || !data.owner || !data.dueDate) {
+    throw new Error("Campos obrigatórios: title, owner, dueDate");
   }
 &nbsp;
   const newTask = await taskRepository.create(data);
   return newTask;
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >update(</span>id: string, data: any) {
-  const existing = <span class="cstat-no" title="statement not covered" >await taskRepository.getById(id);</span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!existing) <span class="cstat-no" title="statement not covered" >throw new Error("Task não encontrada");</span></span>
+export async function update(id: string, data: any) {
+  const existing = await taskRepository.getById(id);
+  if (!existing) throw new Error("Task não encontrada");
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return taskRepository.update(id, data);</span>
+  return taskRepository.update(id, data);
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >remove(</span>id: string) {
-  const existing = <span class="cstat-no" title="statement not covered" >await taskRepository.getById(id);</span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!existing) <span class="cstat-no" title="statement not covered" >throw new Error("Task não encontrada");</span></span>
+export async function remove(id: string) {
+  const existing = await taskRepository.getById(id);
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!existing) <span class="cstat-no" title="statement not covered" >throw new Error("Task não encontrada");</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  await taskRepository.remove(id);</span>
-<span class="cstat-no" title="statement not covered" >  return true;</span>
+  await taskRepository.remove(id);
+  return true;
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -169,7 +169,7 @@ export async function <span class="fstat-no" title="function not covered" >remov
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-08T01:40:03.214Z
+                at 2025-11-08T01:49:09.496Z
             </div>
         <script src="../prettify.js"></script>
         <script>
