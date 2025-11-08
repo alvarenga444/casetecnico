@@ -7,10 +7,20 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "ts-node-dev src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "test": "jest --runInBand",
+    "start": "node dist/server.js",
+    "test": "jest --runInBand --detectOpenHandles",
     "coverage": "jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "lines": 80,
+        "branches": 75
+      }
+    }
   },
   "keywords": [],
   "author": "",
@@ -27,6 +37,7 @@
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
+    "@types/mocha": "^10.0.10",
     "@types/supertest": "^6.0.3",
     "jest": "^29.7.0",
     "supertest": "^7.1.4",
