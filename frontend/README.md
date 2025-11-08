@@ -235,9 +235,10 @@ Este projeto é parte de um case técnico.
 
 ## 👨‍💻 Autor
 
-Desenvolvido com ❤️ para demonstrar habilidades em desenvolvimento frontend moderno.
-
 ---
 
-**Dúvidas?** Abra uma issue ou entre em contato!
+✍️ **Autor:** Francisco Carlos de Alvarenga  
+📅 **Data:** Novembro de 2025  
+🏷️ **Desafio Técnico – Desenvolvedor Backend Sênior**
+
 
