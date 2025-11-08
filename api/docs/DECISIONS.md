@@ -157,4 +157,4 @@ A arquitetura modular e os testes com alta cobertura garantem **segurança e esc
 
 ✍️ **Autor:** [Francisco Carlos de Alvarenga]  
 📅 **Data:** Novembro de 2025  
-🏷️ **Desafio Técnico – Desenvolvedor Web Sênior**
+🏷️ **Desafio Técnico – Desenvolvedor Backend Sênior**
