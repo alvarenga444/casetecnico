@@ -1,0 +1,20 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "allowJs": true,
+    "types": ["@types/node"],
+    "baseUrl": ".",
+    "paths": {
+      "#app": [".nuxt/types/app"],
+      "#imports": [".nuxt/types/imports"],
+      "#build": [".nuxt/types/build"],
+      "~/*": ["./*"],
+      "@/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
