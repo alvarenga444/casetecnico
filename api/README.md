@@ -16,7 +16,7 @@ Este projeto implementa uma **API REST** completa para gerenciamento de tarefas,
 A aplicação segue o padrão **Controller → Service → Repository**, utilizando **Prisma ORM** com **PostgreSQL**.
 
 ### 🔷 Diagrama de Arquitetura
-![Diagrama](./docs/DiagramaQuero.drawio.png)
+![Diagrama](./docs/architecture-diagram.png)
 
 > O diagrama ilustra a comunicação entre o Frontend (Nuxt.js), o Backend (Node.js/Express), o Job Scheduler (node-cron) e o Banco PostgreSQL.
 
