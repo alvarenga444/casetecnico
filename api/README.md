@@ -1,4 +1,4 @@
-# 🧠 Case Técnico – Desenvolvedor Web Sênior
+# 🧠 Case Técnico – Desenvolvedor Backend Sênior
 
 Backend desenvolvido por **Francisco Carlos de Alvarenga**, como parte do desafio técnico **Quero Educação**.
 
